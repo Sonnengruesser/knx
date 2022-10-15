@@ -4,9 +4,13 @@
 
 #ifdef ARDUINO_ARCH_RP2040
 
+#define USE_RP2040_EEPROM_EMULATION     // use EEPROM emulation as default for compatibility with other processors (default flash size is 1024)
+
+#ifndef USE_RP2040_EEPROM_EMULATION
 #ifndef KNX_FLASH_OFFSET
 #define KNX_FLASH_OFFSET 0x180000   // 1.5MiB
 #pragma warning "KNX_FLASH_OFFSET not defined, using 0x180000"
+#endif
 #endif
 
 #ifdef USE_RP2040_LARGE_EEPROM_EMULATION
